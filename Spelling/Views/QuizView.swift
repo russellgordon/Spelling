@@ -53,7 +53,12 @@ struct QuizView: View {
                 .padding()
             }
             
-            List(history) { currentResult in
+            List(
+                filtering(
+                    originalList: history,
+                    on: .correct
+                )
+            ) { currentResult in
                 HStack {
                     Image(currentResult.item.imageName)
                         .resizable()
